@@ -1,18 +1,22 @@
-<mat-grid-list cols="4" rowHeight="3:4">
-  <mat-grid-tile>1</mat-grid-tile>
-  <mat-grid-tile>2</mat-grid-tile>
-  <mat-grid-tile>3</mat-grid-tile>
-  <mat-grid-tile>4</mat-grid-tile>
-  <mat-grid-tile>4</mat-grid-tile>
+<mat-grid-list cols="12">
+  <mat-grid-tile [colspan]="2">
+    <button mat-flat-button color="primary" (click)="toFavoritesMovies()"> <i class="material-icons">star</i> Favorites
+    </button>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="8">
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="2">
+    <i class="material-icons md-48 pointer" (click)="previousPage()" disabled>arrow_back</i>
+    <i class="material-icons md-48 pointer" (click)="nextPage()">arrow_forward</i>
+  </mat-grid-tile>
+</mat-grid-list>
 
-  <mat-grid-tile>4</mat-grid-tile>
-
-  <mat-grid-tile>4</mat-grid-tile>
-
-  <mat-grid-tile>4</mat-grid-tile>
-
-  <mat-grid-tile>4</mat-grid-tile>
-
-  <mat-grid-tile>4</mat-grid-tile>
-
+<mat-grid-list cols="5" rowHeight="3:4">
+  <div *ngFor="let movie of movieList">
+    <mat-grid-tile [colspan]="1">
+      <div class="pointer" (click)="movieSelect(movie)">
+        <img src="{{link + movie.poster_path}}">
+      </div>
+    </mat-grid-tile >
+  </div>
 </mat-grid-list>

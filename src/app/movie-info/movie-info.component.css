@@ -1,0 +1,36 @@
+img {
+  background-size: contain;
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+mat-list-item {
+  text-align: left !important;
+  vertical-align: top !important;
+}
+
+mat-list {
+  text-align: left !important;
+  vertical-align: top !important;
+}
+
+.material-icons.md-24 {
+  font-size: 24px;
+}
+
+.material-icons.md-48 {
+  font-size: 48px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.gold {
+  color: gold;
+}
+
+.gray {
+  color: gray;
+}

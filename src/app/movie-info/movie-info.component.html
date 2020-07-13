@@ -1,1 +1,48 @@
-<p>movie-info works!</p>
+<mat-grid-list cols="12">
+  <mat-grid-tile [colspan]="2" [rowspan]="1">
+    <button mat-flat-button color="primary" (click)="toFavoritesMovies()"> <i class="material-icons">star</i> Favorites </button>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="2" [rowspan]="1">
+    <button mat-flat-button color="primary" (click)="backToMovieList()"><i class="material-icons md-24">arrow_back_ios</i> movie list </button>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="6" [rowspan]="1">
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="2" [rowspan]="1">
+    <i class="material-icons md-48 pointer gold" *ngIf="isFavorite(movie); else notFavorite" (click)="deleteFormFavorites(movieDetails)">star</i>
+    <ng-template #notFavorite>
+    <i class="material-icons md-48 pointer gray" (click)="addToFavorites(movieDetails)">star</i>
+    </ng-template>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="6" [rowspan]="10">
+      <img src="{{link + movieDetails.poster_path }}">
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="6" [rowspan]="1">
+      <h1> {{movieDetails.original_title}} </h1>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="6" [rowspan]="1">
+    {{movieDetails.release_date}}
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="6" [rowspan]="2">
+    <div *ngFor="let selectMovieGenre of movieDetails.genre_ids">
+      <div *ngFor="let genre of genres">
+        <div *ngIf="genre.id === selectMovieGenre">
+            {{genre.name}}&nbsp;
+        </div>
+      </div>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="6" [rowspan]="6">
+    {{movieDetails.overview}}
+  </mat-grid-tile>
+</mat-grid-list>
+<p></p>
+<h3>Similar movies:</h3>
+<p></p>
+
+<mat-grid-list cols="10" rowHeight="3:4">
+  <mat-grid-tile *ngFor="let movie of similarMovieList">
+    <div class="pointer" (click)="movieSelect(movie)">
+      <img src="{{link + movie.poster_path}}">
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>

@@ -1,0 +1,20 @@
+<mat-grid-list cols="12">
+  <mat-grid-tile [colspan]="2" [rowspan]="1">
+    <button mat-flat-button color="primary" (click)="backToMovieList()"><i class="material-icons md-24">arrow_back_ios</i> movie list </button>
+  </mat-grid-tile>
+</mat-grid-list>
+<mat-grid-list cols="12">
+  <div *ngFor="let movieDetails of favoritesMovies">
+  <div class="pointer" (click)="toMovieInfo(movieDetails)">
+    <mat-grid-tile [colspan]="4" [rowspan]="2">
+      <img src="{{link + movieDetails.poster_path }}">
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="4" [rowspan]="2">
+        {{movieDetails.original_title}}
+    </mat-grid-tile>
+  </div>
+    <mat-grid-tile [colspan]="4" [rowspan]="2">
+      <i class="material-icons pointer md-36 red-color" (click)="deleteFormFavorites(movieDetails)">undo</i>
+    </mat-grid-tile>
+  </div>
+</mat-grid-list>

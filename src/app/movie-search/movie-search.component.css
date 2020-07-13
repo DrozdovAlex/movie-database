@@ -1,0 +1,21 @@
+img {
+  background-size: contain;
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+mat-grid-list {
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+mat-grid-tile {
+  background: whitesmoke;
+  cursor: pointer;
+  border: 2px solid deepskyblue;
+}
+
+.pointer{
+  cursor: pointer;
+}
