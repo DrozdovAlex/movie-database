@@ -13,7 +13,7 @@
     <i class="material-icons md-48 pointer gray" (click)="addToFavorites(movieDetails)">star</i>
     </ng-template>
   </mat-grid-tile>
-  <mat-grid-tile [colspan]="6" [rowspan]="10">
+  <mat-grid-tile [colspan]="6" [rowspan]="6">
       <img src="{{link + movieDetails.poster_path }}">
   </mat-grid-tile>
   <mat-grid-tile [colspan]="6" [rowspan]="1">
@@ -22,7 +22,7 @@
   <mat-grid-tile [colspan]="6" [rowspan]="1">
     {{movieDetails.release_date}}
   </mat-grid-tile>
-  <mat-grid-tile [colspan]="6" [rowspan]="2">
+  <mat-grid-tile [colspan]="6" [rowspan]="1">
     <div *ngFor="let selectMovieGenre of movieDetails.genre_ids">
       <div *ngFor="let genre of genres">
         <div *ngIf="genre.id === selectMovieGenre">
@@ -31,7 +31,7 @@
       </div>
     </div>
   </mat-grid-tile>
-  <mat-grid-tile [colspan]="6" [rowspan]="6">
+  <mat-grid-tile [colspan]="6" [rowspan]="3">
     {{movieDetails.overview}}
   </mat-grid-tile>
 </mat-grid-list>
